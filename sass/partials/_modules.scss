@@ -119,7 +119,7 @@ header {
                          font-size: 25px;
                          font-family: $font1;
                          font-weight: $fw-black;
-                         line-height: 1;
+                         line-height: .6;
                         @include MQ(Splus) {
                             font-size: 50px;
                         }
