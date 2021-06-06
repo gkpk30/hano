@@ -1,0 +1,220 @@
+header{
+    // background: var(--background);
+    background: $third;
+    // background-color: #ffffff85;
+    border-color: $border;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    height: 125px;
+    padding-top: 10px;
+    transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+    border-width: 0 0 3px 0;
+    border-style: solid;
+    @include MQ(XSneg) {
+        height:75px !important;
+       
+    }
+    
+}
+
+.logo{
+    margin: 0;
+    height: 40px;
+    align-self: center;
+}
+nav{
+   position: absolute;
+   text-align: left;
+   top: 100%;
+   left: 0;
+   width: 100%;
+//    background: var(--background);
+   background: $third;
+border-color: $border;
+   transform: scale(1,0);
+    -webkit-transform: scale(1,0);
+    -moz-transform: scale(1,0);
+    -ms-transform: scale(1,0);
+    -o-transform: scale(1,0);
+
+    transform-origin: top;
+
+    transition: transform 400ms ease-in-out;
+    -webkit-transition: transform 400ms ease-in-out;
+    -moz-transition: transform 400ms ease-in-out;
+    -ms-transition: transform 400ms ease-in-out;
+    -o-transition: transform 400ms ease-in-out;
+
+    ul{  margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li{
+        margin-bottom: 1em;
+        margin-left: 1em;
+    }
+
+    a {
+        
+        color: $textColor;
+        font-weight: $fw-bold;
+        text-decoration: none;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        border-bottom: none;
+        opacity: 0;
+        transition: opacity 150ms ease-in-out  ;
+        -webkit-transition: opacity 150ms ease-in-out  ;
+        -moz-transition: opacity 150ms ease-in-out  ;
+        -ms-transition: opacity 150ms ease-in-out  ;
+        -o-transition: opacity 150ms ease-in-out  ;
+
+        &:hover {
+            color: black;
+        }
+    }
+
+    
+}
+//psuedo class called checked. If the input is checked then it will look 
+//for nav that is the very next sibling to .nav-toggle
+.nav-toggle:checked ~ nav{
+    transform:scale(1,1);
+    -webkit-transform:scale(1,1);
+    -moz-transform:scale(1,1);
+    -ms-transform:scale(1,1);
+    -o-transform:scale(1,1);
+
+    a{
+        opacity: 1;
+        transition: opacity 250ms ease-in-out 250ms ;
+        -webkit-transition: opacity 250ms ease-in-out 250ms ;
+        -moz-transition: opacity 250ms ease-in-out 250ms ;
+        -ms-transition: opacity 250ms ease-in-out 250ms ;
+        -o-transition: opacity 250ms ease-in-out 250ms ;
+    }
+
+}
+//remove the check box
+.nav-toggle {
+    display: none;
+}
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+//Hamburger Menu style Start
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    position: relative;
+    background: $primary;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    
+}
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+    content: '';
+    position: absolute;
+}
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+.nav-toggle-label span::after{
+    top: 7px;
+}
+//Hamburger Menu End
+//=====================================
+
+@include MQ(Splus) {
+
+    .nav-toggle-label {
+        display: none;
+    }
+
+    header{
+        display: grid;
+        // grid-template-columns: 1fr auto minmax(600px,3fr) 1fr;
+        grid-template-columns: 1fr auto 3fr 1fr;
+        max-width: 2560px;
+        margin: auto;
+        
+    }
+    .logo{
+        grid-column: 2/ span 1;
+    }
+    nav{
+        //all: unset;   //Does not have Edge Support
+        //Edge Support
+        position: relative;
+        text-align: left;
+        transition: none;
+        transform: scale(1,1);
+        background: none;
+        top: initial;
+        left: initial;
+        //
+        grid-column: 3/ 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        a{
+            opacity: 1;
+            position: relative;
+        }
+        ul{
+            display: flex;  
+            justify-content: flex-end;
+            
+        }
+        li{
+            margin-left: 3em;
+            margin-bottom: 0;
+        }
+    }
+   nav a::before{
+       content: '';
+       display: block;
+       height: 5px;
+       background: black;
+       position: absolute;
+       top: -.25em;
+       left: 0;
+       right: 0;
+
+    //    transform-origin: left;
+
+       transform: scale(0,1);
+       -webkit-transform: scale(0,1);
+       -moz-transform: scale(0,1);
+       -ms-transform: scale(0,1);
+       -o-transform: scale(0,1);
+       
+       transition: transform ease-in-out 250ms;
+       -webkit-transition: transform ease-in-out 250ms;
+       -moz-transition: transform ease-in-out 250ms;
+       -ms-transition: transform ease-in-out 250ms;
+       -o-transition: transform ease-in-out 250ms;
+   }
+   nav a:hover::before{
+    transform: scale(1,1)   ;
+    -webkit-transform: scale(1,1)   ;
+    -moz-transform: scale(1,1)   ;
+    -ms-transform: scale(1,1)   ;
+    -o-transform: scale(1,1)   ;
+    }
+}

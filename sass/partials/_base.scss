@@ -1,0 +1,85 @@
+body {
+    // margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+   margin: auto;
+   max-width: 2560px;
+   font-family: $font1;
+   font-weight: $fw-normal;
+   color: #464646;
+    
+    
+    
+    // font-family: "SansationRegular";
+    // Modernizr fallback for when there is no fontface support
+    .no-fontface & {
+    	font-family: "Verdana";
+    }
+}
+
+p{
+    font-size: 14px;
+    
+}
+
+
+
+*,*::before, *::after {box-sizing: border-box;}
+
+:root{
+    --background: rgba(0,214,170,.85); //variable
+    scroll-padding-top: 90px;
+    scroll-behavior: smooth;
+}
+
+a {
+    border: none;
+    color: $color11;
+}
+
+ul,li {
+    margin: 0;
+    padding: 0;
+}
+::-moz-selection {
+    background: $color1;
+    text-shadow: none;
+}
+::selection {
+    background: $color1;
+    text-shadow: none;
+}
+
+hr {
+    border-color: #3e505d3a;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+  width: 50%;
+    
+}
+
+
+//Icons
+.material-icons {
+    padding-right: 8px;
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-14 { font-size: 14px; }
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
